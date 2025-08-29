@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>WebGIS – Map</title>
+
+  <!-- Style umum -->
+  <link rel="stylesheet" href="styles.css" />
+
+  <!-- Leaflet CSS -->
+  <link
+    rel="stylesheet"
+    href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+    crossorigin=""
+  />
+  <style>
+    #map { height: 600px; }
+  </style>
+</head>
+<body>
+  <nav class="navbar">
+    <div class="links">
+      <a href="index.html">Home</a>
+      <a class="active" href="map.html">Map</a>
+      <a href="portfolio.html">Portfolio</a>
+    </div>
+  </nav>
+
+  <main class="container">
+    <h1>Map Page (Leaflet)</h1>
+    <p>Peta Persebaran Billboard di Bandung</p>
+
+    <!-- Elemen peta -->
+    <div id="map" role="region" aria-label="Peta WebGIS"></div>
+  </main>
+
+  <footer class="footer">© 2025 WebGIS Demo</footer>
+
+  <!-- Leaflet JS -->
+  <script
+    src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+    integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+    crossorigin=""
+  ></script>
+
+  <script>
+    // Inisialisasi peta 
+    const map = L.map('map').setView([-6.9175, 107.6191], 12);
+
+    // Tile layer OpenStreetMap
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      maxZoom: 19,
+      attribution:
+        '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+    }).addTo(map);
+
+    // Tambah layer geojson dari file manager
+    fetch('./data/billboards_bandung.geojson')
+    // Menampilkan data geojson di peta dan popup attribut table
+      .then(response => response.json())
+      .then(data => {
+        L.geoJSON(data, {
+          onEachFeature: (feature, layer) => {
+            let popupContent = '<table>';
+            for (const property in feature.properties) {
+              popupContent += `<tr><th>${property}</th><td>${feature.properties[property]}</td></tr>`;
+            }
+            popupContent += '</table>';
+            layer.bindPopup(popupContent);
+          },
+        pointToLayer: (feature, latlng) =>
+          L.circleMarker(latlng, {
+            radius: 6,
+            fillColor: '#ff7800',
+            color: '#000',
+            weight: 1,
+            opacity: 1,
+            fillOpacity: 0.8
+          })
+        }).addTo(map);
+      })
+      .catch(error => console.error('Error loading GeoJSON:', error));
+
+  </script>
+</body>
+</html>
