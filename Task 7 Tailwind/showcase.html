@@ -1,0 +1,187 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Showcase</title>
+
+  <!-- Tailwind Play CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            base: "#FDFBEE",     // background utama
+            teal: "#57B4BA",     // aksen biru muda
+            darkteal: "#015551", // teks / elemen utama
+            accent: "#FE4F2D",   // tombol / highlight
+          },
+          fontFamily: {
+            sans: ["Inter","ui-sans-serif","system-ui"],
+          },
+          boxShadow: {
+            soft: "0 8px 20px rgba(1,85,81,.08)"
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    .tab-active { color:#015551; }
+  </style>
+</head>
+
+<body class="min-h-screen bg-base text-darkteal">
+  <!-- NAVBAR (konsisten) -->
+  <header class="sticky top-0 z-50 backdrop-blur border-b border-darkteal/20 bg-base/90">
+    <div class="mx-auto max-w-7xl px-4 py-3 flex items-center justify-between">
+      <a href="index.html" class="font-semibold">WebGIS</a>
+      <nav class="flex gap-3 text-sm">
+        <a href="index.html"     class="px-3 py-1 rounded-full hover:bg-teal/20">Home</a>
+        <a href="showcase.html"       class="px-3 py-1 rounded-full bg-accent text-white">Showcase</a>
+        <a href="portfolio.html" class="px-3 py-1 rounded-full hover:bg-teal/20">Portfolio</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="mx-auto max-w-7xl px-4 py-10">
+    <!-- Tabs -->
+    <div class="flex justify-center gap-8 relative">
+      <button data-tabbtn="webmaps" class="pb-2 text-darkteal/70 hover:text-darkteal tab-active">Web Maps</button>
+      <button data-tabbtn="dashboards" class="pb-2 text-darkteal/70 hover:text-darkteal">Dashboards</button>
+      <button data-tabbtn="design" class="pb-2 text-darkteal/70 hover:text-darkteal">Design Works</button>
+    </div>
+
+    <!-- GRID: Web Maps -->
+    <section data-tab="webmaps" class="mt-8 grid gap-6 sm:grid-cols-1 lg:grid-cols-2">
+      <!-- CARD TEMPLATE -->
+      <article class="card overflow-hidden rounded-2xl border border-darkteal/15 bg-white/70 shadow-soft">
+        <a href="map.html#osrm" class="block relative">
+          <img src="data/osrm.png" alt="OSRM Routing"
+               class="h-48 w-full object-cover">
+        </a>
+        <div class="p-5">
+          <h3 class="text-lg font-semibold">OSRM Routing Map</h3>
+          <div class="mt-2 flex flex-wrap gap-2">
+            <span class="rounded-full bg-teal/20 border border-darkteal/20 px-3 py-1 text-xs">Leaflet</span>
+            <span class="rounded-full bg-teal/20 border border-darkteal/20 px-3 py-1 text-xs">OSRM</span>
+            <span class="rounded-full bg-teal/20 border border-darkteal/20 px-3 py-1 text-xs">GeoServer</span>
+          </div>
+          <p class="mt-3 text-sm text-darkteal/80">
+            Aplikasi rute cepat berbasis OSRM dengan opsi start–end, alternatif rute, dan estimasi jarak/waktu.
+          </p>
+          <div class="mt-4 flex items-center justify-between">
+            <span class="text-xs text-darkteal/60">WebGIS</span>
+            <a href="map.html#osrm" class="text-accent hover:underline text-sm">Try it out</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="card overflow-hidden rounded-2xl border border-darkteal/15 bg-white/70 shadow-soft">
+        <a href="map.html#billboard" class="block relative">
+          <img src="data/billboard.png" alt="Billboard Analytics Map" class="h-48 w-full object-cover">
+        </a>
+        <div class="p-5">
+          <h3 class="text-lg font-semibold">Billboard Analytics</h3>
+          <div class="mt-2 flex flex-wrap gap-2">
+            <span class="rounded-full bg-teal/20 border border-darkteal/20 px-3 py-1 text-xs">Suitability</span>
+            <span class="rounded-full bg-teal/20 border border-darkteal/20 px-3 py-1 text-xs">POI</span>
+            <span class="rounded-full bg-teal/20 border border-darkteal/20 px-3 py-1 text-xs">Traffic</span>
+          </div>
+          <p class="mt-3 text-sm text-darkteal/80">
+            Peta rekomendasi lokasi billboard dengan MCDA, integrasi demografi & intensitas lalu lintas.
+          </p>
+          <div class="mt-4 flex items-center justify-between">
+            <span class="text-xs text-darkteal/60">Analysis</span>
+            <a href="map.html#billboard" class="text-accent hover:underline text-sm">Try it out</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="card overflow-hidden rounded-2xl border border-darkteal/15 bg-white/70 shadow-soft">
+        <a href="map.html#isochrone" class="block relative">
+          <img src="data/isochrone.png" alt="Isochrone Map" class="h-48 w-full object-cover">
+        </a>
+        <div class="p-5">
+          <h3 class="text-lg font-semibold">Isochrone Service Area</h3>
+          <div class="mt-2 flex flex-wrap gap-2">
+            <span class="rounded-full bg-teal/20 border border-darkteal/20 px-3 py-1 text-xs">MapLibre</span>
+            <span class="rounded-full bg-teal/20 border border-darkteal/20 px-3 py-1 text-xs">Isochrone</span>
+            <span class="rounded-full bg-teal/20 border border-darkteal/20 px-3 py-1 text-xs">OSRM API</span>
+          </div>
+          <p class="mt-3 text-sm text-darkteal/80">
+            Visualisasi area jangkau (5–30 menit) untuk analisis aksesibilitas lokasi layanan.
+          </p>
+          <div class="mt-4 flex items-center justify-between">
+            <span class="text-xs text-darkteal/60">Accessibility</span>
+            <a href="map.html#isochrone" class="text-accent hover:underline text-sm">Try it out</a>
+          </div>
+        </div>
+      </article>
+    </section>
+
+    <!-- GRID: Dashboards -->
+    <section data-tab="dashboards" class="hidden mt-8 grid gap-6 sm:grid-cols-1 lg:grid-cols-2">
+      <article class="card overflow-hidden rounded-2xl border border-darkteal/15 bg-white/70 shadow-soft">
+        <a href="#" class="block">
+          <img src="data/dashboard.png" alt="Dashboard" class="h-48 w-full object-cover">
+        </a>
+        <div class="p-5">
+          <h3 class="text-lg font-semibold">NRW Water-Loss Dashboard</h3>
+          <div class="mt-2 flex flex-wrap gap-2">
+            <span class="rounded-full bg-teal/20 border border-darkteal/20 px-3 py-1 text-xs">Charts</span>
+            <span class="rounded-full bg-teal/20 border border-darkteal/20 px-3 py-1 text-xs">PostGIS</span>
+          </div>
+          <p class="mt-3 text-sm text-darkteal/80">KPI NRW, kebocoran, dan heatmap kehilangan air.</p>
+          <div class="mt-4 flex items-center justify-between">
+            <span class="text-xs text-darkteal/60">Dashboard</span>
+            <a href="#" class="text-accent hover:underline text-sm">Try it out</a>
+          </div>
+        </div>
+      </article>
+    </section>
+
+    <!-- GRID: Design Works -->
+    <section data-tab="design" class="hidden mt-8 grid gap-6 sm:grid-cols-1 lg:grid-cols-2">
+      <article class="card overflow-hidden rounded-2xl border border-darkteal/15 bg-white/70 shadow-soft">
+        <a href="#" class="block">
+          <img src="data/topo.png" alt="Design" class="h-48 w-full object-cover">
+        </a>
+        <div class="p-5">
+          <h3 class="text-lg font-semibold">Map Poster – Hillshade Series</h3>
+          <div class="mt-2 flex flex-wrap gap-2">
+            <span class="rounded-full bg-teal/20 border border-darkteal/20 px-3 py-1 text-xs">Inkscape</span>
+            <span class="rounded-full bg-teal/20 border border-darkteal/20 px-3 py-1 text-xs">Cartography</span>
+          </div>
+          <p class="mt-3 text-sm text-darkteal/80">Poster peta dengan gaya minimal, high-contrast.</p>
+          <div class="mt-4 flex items-center justify-between">
+            <span class="text-xs text-darkteal/60">Design</span>
+            <a href="#" class="text-accent hover:underline text-sm">View</a>
+          </div>
+        </div>
+      </article>
+    </section>
+  </main>
+
+  <!-- Tabs JS -->
+  <script>
+    const btns = document.querySelectorAll('[data-tabbtn]');
+    const panels = document.querySelectorAll('[data-tab]');
+    const underline = document.getElementById('tab-underline');
+
+    function activate(tab) {
+      // toggle button styles
+      btns.forEach(b=>{
+        b.classList.toggle('tab-active', b.dataset.tabbtn===tab);
+      });
+      // show panel
+      panels.forEach(p=>p.classList.toggle('hidden', p.dataset.tab!==tab));
+    }
+
+    btns.forEach(b=>b.addEventListener('click', ()=>activate(b.dataset.tabbtn)));
+    // init
+    activate('webmaps');
+  </script>
+</body>
+</html>

@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>WebGIS Landing</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            base: "#FDFBEE",     // background utama
+            teal: "#57B4BA",     // aksen biru muda
+            darkteal: "#015551", // teks / elemen utama
+            accent: "#FE4F2D",   // tombol / highlight
+          },
+          fontFamily: {
+            sans: ["Inter","ui-sans-serif","system-ui"],
+          },
+        }
+      }
+    }
+  </script>
+</head>
+<body class="min-h-screen bg-base text-darkteal font-sans">
+
+  <!-- NAVBAR -->
+  <header class="sticky top-0 z-50 backdrop-blur border-b border-darkteal/20 bg-base/90">
+    <div class="mx-auto max-w-7xl px-4 py-3 flex items-center justify-between">
+      <a href="index.html" class="font-semibold">WebGIS</a>
+      <nav class="flex gap-3 text-sm">
+        <a href="index.html"     class="px-3 py-1 rounded-full bg-accent text-white">Home</a>
+        <a href="showcase.html"  class="px-3 py-1 rounded-full hover:bg-teal/20">Showcase</a>
+        <a href="portfolio.html" class="px-3 py-1 rounded-full hover:bg-teal/20">Portfolio</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="mx-auto max-w-7xl px-4">
+    <!-- HERO -->
+    <section class="py-16 grid md:grid-cols-2 gap-10 items-center">
+      <div>
+        <h1 class="text-4xl md:text-5xl font-extrabold leading-tight">
+          Elevate Your Business With <span class="text-accent">WEBGIS</span>
+        </h1>
+        <p class="mt-4 text-darkteal/80 max-w-md">
+          Powerful geospatial solutions for routing, analytics, and decision-making. 
+          Empower your projects with interactive maps and location intelligence.
+        </p>
+        <div class="mt-6 flex gap-4">
+          <a href="#" class="rounded-full bg-accent hover:bg-darkteal px-6 py-3 font-semibold text-white">Contact Now</a>
+          <a href="showcase.html" class="rounded-full border border-darkteal/20 bg-teal/20 hover:bg-teal/30 px-6 py-3 font-semibold">View Showcase</a>
+        </div>
+      </div>
+      <div class="flex justify-center">
+        <!-- ganti dengan ilustrasi kamu -->
+        <img src="data/gis.png" alt="WebGIS Illustration" class="h-full w-full object-cover">
+      </div>
+    </section>
+
+    <!-- WHY WEBGIS -->
+    <section class="py-16">
+      <h2 class="text-2xl md:text-3xl font-bold text-center">Why WebGIS?</h2>
+      <div class="mt-10 grid gap-6 sm:grid-cols-2 md:grid-cols-3">
+        <!-- Card 1 -->
+        <article class="rounded-2xl border border-darkteal/15 bg-white/80 p-6 text-center">
+          <img src="data/gis.png" alt="Benefit 1" class="mx-auto h-24 w-24 object-cover rounded-xl">
+          <h3 class="mt-4 font-semibold">Data-driven Insights</h3>
+          <p class="mt-2 text-sm text-darkteal/80">High-class spatial analysis for strategic planning.</p>
+        </article>
+        <!-- Card 2 -->
+        <article class="rounded-2xl border border-darkteal/15 bg-white/80 p-6 text-center">
+          <img src="data/gis.png" alt="Benefit 2" class="mx-auto h-24 w-24 object-cover rounded-xl">
+          <h3 class="mt-4 font-semibold">Custom Solutions</h3>
+          <p class="mt-2 text-sm text-darkteal/80">Adapted to your sector’s needs with flexible maps.</p>
+        </article>
+        <!-- Card 3 -->
+        <article class="rounded-2xl border border-darkteal/15 bg-white/80 p-6 text-center">
+          <img src="data/gis.png" alt="Benefit 3" class="mx-auto h-24 w-24 object-cover rounded-xl">
+          <h3 class="mt-4 font-semibold">Scalable Tools</h3>
+          <p class="mt-2 text-sm text-darkteal/80">Works on web & mobile to reach your audience.</p>
+        </article>
+      </div>
+      <div class="mt-10 flex justify-center">
+        <a href="portfolio.html" class="rounded-full bg-teal hover:bg-darkteal px-6 py-3 text-white font-semibold">Read Article</a>
+      </div>
+    </section>
+
+    <!-- CONNECT -->
+    <section class="py-16">
+      <h2 class="text-2xl md:text-3xl font-bold text-center">Connect with us</h2>
+      <div class="mt-10 grid gap-6 md:grid-cols-3 text-sm">
+        <!-- Office -->
+        <div>
+          <h3 class="font-semibold">MAIN OFFICE</h3>
+          <p class="mt-2 text-darkteal/80">
+            Cibodas Raya<br>
+            Antapani<br>
+            40291
+          </p>
+        </div>
+        <!-- Social -->
+        <div>
+          <h3 class="font-semibold">SOCIAL MEDIA</h3>
+          <ul class="mt-2 space-y-1 text-darkteal/80">
+            <li><a href="#">Facebook</a></li>
+            <li><a href="#">Instagram</a></li>
+            <li><a href="#">Twitter</a></li>
+          </ul>
+        </div>
+        <!-- Email -->
+        <div>
+          <h3 class="font-semibold">EMAIL</h3>
+          <p class="mt-2 text-darkteal/80">haedarghilba@gmail.com</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="py-8 text-center text-sm text-darkteal/70">
+    © 2025 • WebGIS
+  </footer>
+</body>
+</html>
